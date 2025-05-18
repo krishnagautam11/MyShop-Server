@@ -21,8 +21,20 @@ const PORT = process.env.PORT || 5000;
 
 connectDB();
 
+const allowedOrigins = [
+  'https://my-shop-client-iag5uln7u-krishna-gautams-projects-4f6e85c9.vercel.app',
+  'https://my-shop-client-pwiq455la-krishna-gautams-projects-4f6e85c9.vercel.app',
+  'https://myshop.vercel.app', 
+];
+
 app.use(cors({
-  origin: 'https://my-shop-client-iag5uln7u-krishna-gautams-projects-4f6e85c9.vercel.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
 
