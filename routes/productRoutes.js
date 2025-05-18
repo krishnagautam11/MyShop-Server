@@ -156,7 +156,7 @@ router.post('/seed', async (req, res) => {
    {
     name: 'Perfume',
     price: 1800,
-    image: 'hhttps://myshop-server-production.up.railway.app/uploads/item6.jpg',
+    image: 'https://myshop-server-production.up.railway.app/uploads/item6.jpg',
     category: 'accessories',
   },
    {
